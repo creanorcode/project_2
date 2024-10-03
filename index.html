@@ -8,27 +8,29 @@
 </head>
 
 <body>
-    <div class="site-title">
-        <h1>Game Room</h1>
-    </div>
     <div class="game-container">
         <h1>Game Room</h1>
         <h2>Rock, Paper, Scissors, Lizard and Spock</h2>
-        <div class="">
-
+        <div id="level">
+            Level: <span id="current-level">1</span>
         </div>
 
-        <div class="">
-
+        <div id="scoreboard">
+            <p>Your points: <span id="player-score">0</span></p>
+            <p>Computer points: <span id="computer-score">0</span></p>
         </div>
 
-        <div class="">
-
+        <div class="choices">
+            <button class="choice" data-choice="rock">Rock</button>
+            <button class="choice" data-choice="paper">Paper</button>
+            <button class="choice" data-choice="scissors">Scissors</button>
+            <button class="choice" data-choice="lizard">Lizard</button>
+            <button class="choice" data-choice="spock">Spock</button>
         </div>
+        <div id="result"></div>
+        <button id="next-level">Next level</button>
 
     </div>
-
-
     
     <script src="assets/js/script.js"></script>
 </body>

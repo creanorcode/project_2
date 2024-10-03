@@ -8,15 +8,22 @@ body {
     background-color: #f0f0f0;
 }
 
-.site-title {
-    display: flex;
-    text-align: center;
-}
-
 .game-container {
     text-align: center;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.choices {
+
+}
+
+.choice {
+    
+}
+
+#result {
+
 }
