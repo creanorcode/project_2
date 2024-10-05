@@ -17,13 +17,28 @@ body {
 }
 
 .choices {
-
+    margin: 20px 0;
 }
 
 .choice {
-    
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #result {
+    margin: 20px 0;
+    font-size: 20px;
+}
 
+#next-level, #reset-game {
+    display: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.choice.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
