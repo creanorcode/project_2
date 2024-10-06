@@ -74,8 +74,20 @@ function getComputerChoice() {
     }
 }
 
-function getResult() {
+function getResult(userChoice, computerChoice) {
+    if (!choices.includes(userChoice) || !choices.includes(computerChoice)) {
+        throw new Error('Ogiltigt val!'); //Felhantering om inmatningarna är felaktiga
+    }
 
+    if (userChoice === computerChoice) {
+        return "Det är oavgjort!";
+    }
+
+    if (results[userChoice].includes(computerChoice)) {
+        return "Du vann!";
+    } else {
+        return "Du förlorade!";
+    }
 }
 
 function updateScoreAndResult() {
