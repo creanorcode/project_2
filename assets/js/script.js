@@ -65,7 +65,13 @@ function playGame(userChoice) {
 }
 
 function getComputerChoice() {
-
+    // Lägg till högre chans för datron att vinna på högre nivåer
+    if (currentLevel > 3) {
+        const losingChoices = results[choices[Math.floor(Math.random() * choices.length)]];
+        return losingChoices[Math.floor(Math.random() * losingChoices.length)];
+    } else {
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
 }
 
 function getResult() {
