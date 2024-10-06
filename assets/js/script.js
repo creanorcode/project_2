@@ -27,7 +27,7 @@ document.getElementById('next-level').addEventListener('click', () => {
     document.getElementById('next-level').style.display = 'none';
 });
 
-document.getElementById('reset-game').addEventListener('click', => {
+document.getElementById('reset-game').addEventListener('click', () => {
     resetGame();
 });
 
@@ -40,8 +40,13 @@ function playGame(userChoice) {
     setTimeout(() => {
         const computerChoice = getComputerChoice();
         const result = getResult(userChoice, computerChoice);
+        
+        //Debug-loggar för att kontrollera valen och resultaten
+        console.log(`User Choice: ${userChoice}`);
+        console.log(`Computer Choice: ${computerChoice}`);
+        console.log(`Result: ${result}`);
 
-        if (result.includes("Du vann")) {
+        if (result.includes("Du vann!")) {
             playerScore++;
             document.getElementById('next-level').style.display = 'block';
 
@@ -51,11 +56,11 @@ function playGame(userChoice) {
                 gameSpeed = Math.max(1000, gameSpeed - 500); //Minska spelets hastighet
                 document.getElementById('current-level').textContent = currentLevel;
             }
-        } else if (result.includes("Du förlorade")) {
+        } else if (result.includes("Du förlorade!")) {
             computerScore++;
         }
 
-        updateScoreAndResult('Du valde ${userChoice}. Datorn valde ${computerChoice}. ${result}');
+        updateScoreAndResult(`Du valde ${userChoice}. Datorn valde ${computerChoice}. ${result}`);
 
         document.querySelectorAll('.choice').forEach(button => {
             button.disabled = false;
