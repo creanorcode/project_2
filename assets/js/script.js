@@ -90,10 +90,25 @@ function getResult(userChoice, computerChoice) {
     }
 }
 
-function updateScoreAndResult() {
+function updateScoreAndResult(resultText) {
+    document.getElementById('player-score').textContent = playerScore;
+    document.getElementById('computer-score').textContent = computerScore;
+    document.getElementById('result').textContent = resultText;
 
+    //Visa återställningsknappen om spelet är igång
+    document.getElementById('reset-game').style.display = 'block';
 }
 
 function resetGame() {
-    
+    playerScore = 0;
+    computerScore = 0;
+    currentLevel = 1;
+    gameSpeed = 3000;
+
+    document.getElementById('player-score').textContent = playerScore;
+    document.getElementById('computer-score').textContent = computerScore;
+    document.getElementById('current-level').textContent = currentLevel;
+    document.getElementById('result').textContent = '';
+    document.getElementById('next-level').style.display = 'none';
+    document.getElementById('reset-game').style.display = 'none';
 }
