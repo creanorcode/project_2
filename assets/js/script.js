@@ -63,3 +63,19 @@ function playGame(userChoice) {
         });
     }, gameSpeed);
 }
+
+function getComputerChoice() {
+
+}
+
+function getResult() {
+
+}
+
+function updateScoreAndResult() {
+
+}
+
+function resetGame() {
+    
+}
