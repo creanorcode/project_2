@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -10,10 +11,27 @@ body {
 
 .game-container {
     text-align: center;
-    background-color: #f0f0f0;
+    background-color: #454545;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(244, 3, 3, 0.909);
+    color: #f0f0f0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px #252525;
+}
+
+.game-container h1 {
+    font-size: 3.5rem;
+    color: yellow;
+}
+
+.game-container h2 {
+    font-size: 2rem;
+    color: yellow;
+}
+
+#level, #scoreboard {
+    color: yellow;
 }
 
 .choices {
