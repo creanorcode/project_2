@@ -13,9 +13,27 @@ let gameSpeed = 3000; //Startid för spelaren att välja (i millisekunder)
 let playerScore = 0;
 let computerScore = 0;
 
+const buttonSound = document.getElementById('button-sound');
+const winSound = document.getElementById('win-sound');
+const loseSound = document.getElementById('lose-sound');
+const tieSound = document.getElementById('tie-sound');
+
+// FUnktion för att spela ljud med felhantering
+function playSound(sound) {
+    try {
+        sound.play();
+    } catch (error) {
+        console.error('Kunde inte spela ljud', error);
+    }
+}
+
 document.querySelectorAll('.choice').forEach(button => {
     button.addEventListener('click', (event) => {
         const userChoice = event.target.getAttribute('data-choice');
+
+        playSound(buttonSound);
+        //buttonSound.play();
+
         playGame(userChoice);
     });
 });
@@ -50,6 +68,8 @@ function playGame(userChoice) {
             playerScore++;
             document.getElementById('next-level').style.display = 'block';
 
+            //winSound.play();
+
             //Justera spelets svårighetsgrad dynamiskt baserat på spelarens poäng
             if (playerScore % 5 === 0) {
                 currentLevel++;
@@ -58,7 +78,11 @@ function playGame(userChoice) {
             }
         } else if (result.includes("Du förlorade!")) {
             computerScore++;
-        }
+
+            //loseSound.play();
+        } //else {
+            //tieSound.play();
+        //}
 
         updateScoreAndResult(`Du valde ${userChoice}. Datorn valde ${computerChoice}. ${result}`);
 

@@ -8,8 +8,11 @@
 </head>
 
 <body>
+    <div>
+        <h1>Game Room</h1>
     <div class="game-container">
         <h1>Game Room</h1>
+        <button class="choice">Instructions</button>
         <h2>Rock, Paper, Scissors, Lizard and Spock</h2>
         <div id="level">
             Level: <span id="current-level">1</span>
@@ -32,8 +35,14 @@
         <button id="reset-game">Reset game</button>
 
     </div>
+    </div>
     
     <script src="assets/js/script.js"></script>
+
+    <audio id="button-sound" src="assets/audio/button-sound.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="assets/audio/win.mp3" preload="auto"></audio>
+    <audio id="lose-sound" src="assets/audio/lose.mp3" preload="auto"></audio>
+    <audio id="tie-sound" src="assets/audio/tie.mp3" preload="auto"></audio>
 </body>
 
 </html>
