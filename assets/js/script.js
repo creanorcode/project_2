@@ -20,10 +20,14 @@ const tieSound = document.getElementById('tie-sound');
 
 // FUnktion för att spela ljud med felhantering
 function playSound(sound) {
-    try {
-        sound.play();
-    } catch (error) {
-        console.error('Kunde inte spela ljud', error);
+    if (sound && sound.readyState >= 2) {
+        try {
+            sound.play();
+        } catch (error) {
+            console.error('Kunde inte spela ljud');
+        }
+    } else {
+        console.error('Ljudfil saknas eller är inte laddad');
     }
 }
 
@@ -31,7 +35,10 @@ document.querySelectorAll('.choice').forEach(button => {
     button.addEventListener('click', (event) => {
         const userChoice = event.target.getAttribute('data-choice');
 
-        playSound(buttonSound);
+        if (buttonSound) {
+            playSound(buttonSound);
+        }
+        //playSound(buttonSound);
         //buttonSound.play();
 
         playGame(userChoice);
@@ -68,6 +75,10 @@ function playGame(userChoice) {
             playerScore++;
             document.getElementById('next-level').style.display = 'block';
 
+            if (winSound) {
+                playSound(winSound);
+            }
+            //playSound(winSound);
             //winSound.play();
 
             //Justera spelets svårighetsgrad dynamiskt baserat på spelarens poäng
@@ -79,10 +90,17 @@ function playGame(userChoice) {
         } else if (result.includes("Du förlorade!")) {
             computerScore++;
 
+            if (loseSound) {
+                playSound(loseSound);
+            } else {
+                playSound(tieSound);
+            }
+            //playSound(loseSound);
             //loseSound.play();
-        } //else {
+        //} else {
+            //playSound(tieSound)
             //tieSound.play();
-        //}
+        }
 
         updateScoreAndResult(`Du valde ${userChoice}. Datorn valde ${computerChoice}. ${result}`);
 
@@ -94,7 +112,7 @@ function playGame(userChoice) {
 }
 
 function getComputerChoice() {
-    // Lägg till högre chans för datron att vinna på högre nivåer
+    // Lägg till högre chans för datorn att vinna på högre nivåer
     if (currentLevel > 3) {
         const losingChoices = results[choices[Math.floor(Math.random() * choices.length)]];
         return losingChoices[Math.floor(Math.random() * losingChoices.length)];
