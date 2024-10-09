@@ -22,6 +22,7 @@ const tieSound = document.getElementById('tie-sound');
 function playSound(sound) {
     if (sound && sound.readyState >= 2) {
         try {
+            sound.load(); // Se till att ljudet är laddat
             sound.play();
         } catch (error) {
             console.error('Kunde inte spela ljud');

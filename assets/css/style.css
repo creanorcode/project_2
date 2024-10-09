@@ -9,6 +9,31 @@ body {
     background-color: #242424;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: yellow;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: #242424;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #242424;
+    color: yellow;
+}
+
 .game-container {
     text-align: center;
     background-color: #454545;
@@ -18,6 +43,8 @@ body {
     color: #f0f0f0;
     text-transform: uppercase;
     text-shadow: 2px 2px 5px #252525;
+    width: 90%;
+    max-width: 800px;
 }
 
 .game-container h1 {
