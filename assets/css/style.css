@@ -9,7 +9,7 @@ body {
     background-color: #242424;
 }
 
-ul {
+.menu-outer {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -17,11 +17,11 @@ ul {
     background-color: yellow;
 }
 
-li {
+.menu-outer li {
     float: right;
 }
 
-li a {
+.menu-items a {
     display: block;
     color: #242424;
     text-align: center;
@@ -29,9 +29,12 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: #242424;
-    color: yellow;
+.menu-items a:hover {
+    border-bottom: 5px solid #04AA6D;
+}
+
+.active {
+    border-bottom: 5px solid #04AA6D;
 }
 
 .game-container {
@@ -55,6 +58,18 @@ li a:hover {
 .game-container h2 {
     font-size: 2rem;
     color: yellow;
+}
+
+ol {
+    text-align: center;
+}
+
+ul {
+    text-decoration: underline;
+}
+
+li {
+    text-align: left;
 }
 
 #level, #scoreboard {
