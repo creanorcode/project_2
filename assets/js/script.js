@@ -9,26 +9,28 @@ const results = {
 };
 
 let currentLevel = 1;
-let gameSpeed = 3000; //Startid för spelaren att välja (i millisekunder)
+let gameSpeed = 3000; // Start time for the player to choose (in milliseconds)
 let playerScore = 0;
 let computerScore = 0;
+const maxComputerScore = 7; // The game ends when the computer reaches this score
 
+// Get references to the audio files 
 const buttonSound = document.getElementById('button-sound');
 const winSound = document.getElementById('win-sound');
 const loseSound = document.getElementById('lose-sound');
 const tieSound = document.getElementById('tie-sound');
 
-// FUnktion för att spela ljud med felhantering
+// Function to play sound with error handling
 function playSound(sound) {
     if (sound && sound.readyState >= 2) {
         try {
-            sound.load(); // Se till att ljudet är laddat
+            sound.load(); // Make sure the sound is loaded
             sound.play();
         } catch (error) {
-            console.error('Kunde inte spela ljud');
+            console.error('Could not play sound');
         }
     } else {
-        console.error('Ljudfil saknas eller är inte laddad');
+        console.error('Sound file is missing or not loaded');
     }
 }
 
@@ -36,11 +38,7 @@ document.querySelectorAll('.choice').forEach(button => {
     button.addEventListener('click', (event) => {
         const userChoice = event.target.getAttribute('data-choice');
 
-        if (buttonSound) {
-            playSound(buttonSound);
-        }
-        //playSound(buttonSound);
-        //buttonSound.play();
+        playSound(buttonSound);
 
         playGame(userChoice);
     });
@@ -48,7 +46,7 @@ document.querySelectorAll('.choice').forEach(button => {
 
 document.getElementById('next-level').addEventListener('click', () => {
     currentLevel++;
-    gameSpeed = Math.max(1000, gameSpeed - 500); //Minska tiden per nivå
+    gameSpeed = Math.max(1000, gameSpeed - 500); // Decrease the time per level
     document.getElementById('current-level').textContent = currentLevel;
     document.getElementById('next-level').style.display = 'none';
 });
@@ -67,43 +65,40 @@ function playGame(userChoice) {
         const computerChoice = getComputerChoice();
         const result = getResult(userChoice, computerChoice);
         
-        //Debug-loggar för att kontrollera valen och resultaten
+        // Debug logs to check the choices and results
         console.log(`User Choice: ${userChoice}`);
         console.log(`Computer Choice: ${computerChoice}`);
         console.log(`Result: ${result}`);
 
-        if (result.includes("Du vann!")) {
+        if (result.includes("You won!")) {
             playerScore++;
             document.getElementById('next-level').style.display = 'block';
+            
+            // Play victory sound
+            playSound(winSound);
 
-            if (winSound) {
-                playSound(winSound);
-            }
-            //playSound(winSound);
-            //winSound.play();
-
-            //Justera spelets svårighetsgrad dynamiskt baserat på spelarens poäng
+            // Adjust the game's difficulty dynamically based on the player's score
             if (playerScore % 5 === 0) {
                 currentLevel++;
-                gameSpeed = Math.max(1000, gameSpeed - 500); //Minska spelets hastighet
+                gameSpeed = Math.max(1000, gameSpeed - 500); // Decrease the game's speed
                 document.getElementById('current-level').textContent = currentLevel;
             }
-        } else if (result.includes("Du förlorade!")) {
+        } else if (result.includes("You lost!")) {
             computerScore++;
-
-            if (loseSound) {
-                playSound(loseSound);
+            
+            // Play loss sound
+            playSound(loseSound);
+            
+            if (computerScore >= maxComputerScore) {
+                endGame("The computer has reached 7 points and wins the game!");
+                return; // End the game here
+            }
+            
             } else {
                 playSound(tieSound);
             }
-            //playSound(loseSound);
-            //loseSound.play();
-        //} else {
-            //playSound(tieSound)
-            //tieSound.play();
-        }
 
-        updateScoreAndResult(`Du valde ${userChoice}. Datorn valde ${computerChoice}. ${result}`);
+        updateScoreAndResult(`You chose ${userChoice}. The computer chose ${computerChoice}. ${result}`);
 
         document.querySelectorAll('.choice').forEach(button => {
             button.disabled = false;
@@ -112,39 +107,15 @@ function playGame(userChoice) {
     }, gameSpeed);
 }
 
-function getComputerChoice() {
-    // Lägg till högre chans för datorn att vinna på högre nivåer
-    if (currentLevel > 3) {
-        const losingChoices = results[choices[Math.floor(Math.random() * choices.length)]];
-        return losingChoices[Math.floor(Math.random() * losingChoices.length)];
-    } else {
-        return choices[Math.floor(Math.random() * choices.length)];
-    }
-}
+function endGame(message) {
+    document.querySelectorAll('.choice').forEach(button => {
+        button.disabled = true; // Disable all choices
+        button.classList.add('disabled');
+    });
 
-function getResult(userChoice, computerChoice) {
-    if (!choices.includes(userChoice) || !choices.includes(computerChoice)) {
-        throw new Error('Ogiltigt val!'); //Felhantering om inmatningarna är felaktiga
-    }
-
-    if (userChoice === computerChoice) {
-        return "Det är oavgjort!";
-    }
-
-    if (results[userChoice].includes(computerChoice)) {
-        return "Du vann!";
-    } else {
-        return "Du förlorade!";
-    }
-}
-
-function updateScoreAndResult(resultText) {
-    document.getElementById('player-score').textContent = playerScore;
-    document.getElementById('computer-score').textContent = computerScore;
-    document.getElementById('result').textContent = resultText;
-
-    //Visa återställningsknappen om spelet är igång
-    document.getElementById('reset-game').style.display = 'block';
+    // Display the message that the game is over
+    document.getElementById('result').textContent = message;
+    document.getElementById('reset-game').style.display = 'block'; // Show the button to reset the game
 }
 
 function resetGame() {
@@ -156,7 +127,48 @@ function resetGame() {
     document.getElementById('player-score').textContent = playerScore;
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('current-level').textContent = currentLevel;
-    document.getElementById('result').textContent = '';
-    document.getElementById('next-level').style.display = 'none';
-    document.getElementById('reset-game').style.display = 'none';
+    document.getElementById('result').textContent = ''; // Clear the result message
+    document.getElementById('next-level').style.display = 'none'; // Hide the next level button
+    document.getElementById('reset-game').style.display = 'none'; // Hide the reset button
+
+    // Aktiver knapparna igen och ta bort disabled-klassen
+    document.querySelectorAll('.choice').forEach(button => {
+        button.disabled = false; // Enable the buttons
+        button.classList.remove('disabled'); // Remove the "disabled" class
+    });
+}
+
+function getComputerChoice() {
+    // Add a higher chance for the computer to win at higher levels
+    if (currentLevel > 3) {
+        const losingChoices = results[choices[Math.floor(Math.random() * choices.length)]];
+        return losingChoices[Math.floor(Math.random() * losingChoices.length)];
+    } else {
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+}
+
+function getResult(userChoice, computerChoice) {
+    if (!choices.includes(userChoice) || !choices.includes(computerChoice)) {
+        throw new Error('Invalid choice!'); // Error handling if the inputs are incorrect
+    }
+
+    if (userChoice === computerChoice) {
+        return "It’s a tie!";
+    }
+
+    if (results[userChoice].includes(computerChoice)) {
+        return "You won!";
+    } else {
+        return "You lost!";
+    }
+}
+
+function updateScoreAndResult(resultText) {
+    document.getElementById('player-score').textContent = playerScore;
+    document.getElementById('computer-score').textContent = computerScore;
+    document.getElementById('result').textContent = resultText;
+
+    // Show the reset button if the game is active
+    document.getElementById('reset-game').style.display = 'block';
 }

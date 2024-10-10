@@ -4,8 +4,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    /*height: 100vh;*/
+    margin: 5% 0 0 0;
     background-color: #242424;
 }
 
@@ -61,11 +61,11 @@ body {
 }
 
 ol {
-    text-align: center;
+    text-align: left;
 }
 
 ul {
-    text-decoration: underline;
+    text-transform: none;
 }
 
 li {
@@ -92,7 +92,7 @@ li {
     color: yellow;
     text-transform: uppercase;
     font-weight: 700;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.909);
+    box-shadow: 0 0 7px rgba(255, 255, 255, 0.909);
 }
 
 .choice:hover {
