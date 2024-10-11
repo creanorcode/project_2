@@ -4,7 +4,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*height: 100vh;*/
     margin: 5% 0 0 0;
     background-color: #242424;
 }
@@ -85,11 +84,11 @@ li {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #04AA6D;
+    background-color: #04B474;
     border: 3px solid #FFFF00;
     border-radius: 5px;
     display: inline-block;
-    color: #FFFF00;
+    color: #000;
     text-transform: uppercase;
     font-weight: 700;
     box-shadow: 0 0 7px rgba(255, 255, 255, 0.909);
