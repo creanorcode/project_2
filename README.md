@@ -1,131 +1,129 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Game Room - Rock, Paper, Scissor, Lizard and Spock game!
 
-Welcome Thomas Eriksson,
+This is a Rock, Paper, Scissor, Lizard and Spock game. You are playing against the computer and if you level up it goes faster and the computer will be harder to beat. You are gathering points as you win. You are also able to reset the game to level 1 with no points.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Responsive mockup](assets/readme-files/Screenshot-GameRoom.png)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Features
 
-## Gitpod Reminders
+This is the main game area. Here you can navigate to the instructions page (will cover it later down). The main title 'Game Room' is presented on all pages, also the navigation with the links 'Instructions' and 'Home' is also presented on all pages.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+![The main game area screenshot](assets/readme-files/game-play1.png)
 
 ------
 
-## Release History
+### Existing features
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  - _Navigation bar_
 
-**June 18, 2024,** Add Mongo back into template
+    - This navigation bar i presented on all pages. Here the user easily can navigate across all devices to page 'Instruction' and back to 'Home', witch are the two links on the navigation. You can also se the title of the game just underneath the navigation.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+![navigation and game type title](assets/readme-files/game-play-nav.png)
+------
 
-**May 28 2024:** Fix Mongo and Links installs
+  - _Scoreboard and play Buttons_
 
-**April 26 2024:** Update node version to 16
+    - Under the navigation you have the scoreboard and the actual level you are playing on. There you also have the buttons you can chose from - rock, paper, scissor, lizard and spock.
 
-**September 20 2023:** Update Python version to 3.9.17.
+![Scorebord, Level and Buttons](assets/readme-files/game-play-score-buttons.png)
+------
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+  - _Instruction page_
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    - On the instruction page there the user can read the instructions on how to play the game.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![Instructions-page](assets/readme-files/game-instructions.png)
 
 ------
 
-## FAQ about the uptime script
+  - _How to play the game_
 
-**Why have you added this script?**
+    - The user will chose a button and then the computer will chose. 
+    - If the computer wins the computer will be given a point.
+    - If the user wins the user is given a point.
+    - If it is a tie no points will be given.
+    - The user shall try to level up as many times as possible before the computer reaches 7 points. If the computer reaches 7 points the game is over.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+-------
 
-**How will this affect me?**
+    - The user chose a button to click on, a sound effect will play then. Then the copmuter will chose and maby the computer wins and 1 point is given to the computer and you lose. This is how it appears. If you lose there will also be a sound effect. The user is now also able to reset the game to the beginning.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![Game Play - Lose](assets/readme-files/game-playarea1.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    - If it will be a tie, it means you chose the same, a sound effect will play and it will look like this. No points will be given when it is a tie.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Game Play - Tie](assets/readme-files/game-playarea2.png)
 
-**So….?**
+    - If the user wins there will be a sound effect and 1 point will be given to the user. Now there is also a butten to level up. The user can decide to level up or not to level up. 
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![Game Play - Win](assets/readme-files/game-playarea3.png)
 
-**Can I opt out?**
+    - If the computer reaches 7 points the game is over and you have to reset to begin frpm level 1.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Game Play - Computer wins](assets/readme-files/game-playarea4.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+-------
 
-**Anything more?**
+## Features to Implement
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+  - To be able to play against a another human and not anly the computer. 
+  - More sound effects, on the reset button and the next-level button. 
+  - The possibilty to turn on background music wile the user are playing.
+  - Different kind of levels with perks.
 
----
+-------
 
-Happy coding!
+## Technology
+
+  - Html - for building the UI
+  - CSS - for styling the UI
+  - Javascript - for the gameplay and interaction.
+  - GitHub - for the development of the game.
+  - GitPages - for hosting the game.
+
+## Testing
+
+  - I have testes the this page works in different browsers like, Chrome, Firefox, Safari.
+  - I have tested the page and confirmed the it is responsive. That the site looks over all good and all functions working att all standard screen sizes
+    using devtool device tollbar.
+  - I have confirmed that the different functions on the site is working as they should and was intended to work.
+
+-------
+
+## Validator testing
+
+  - HTML
+    - No error or warnings was returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcreanorcode.github.io%2Fproject_2%2Findex.html).
+  
+  - CSS
+    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcreanorcode.github.io%2Fproject_2%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv).
+  
+  - Accessibility
+    - I confirmed that the colors and fonts chosen are easy to read and accessible by running it through Lighthouse in devtools.
+
+    ![Devtools Lighthouse - Game Room](assets/readme-files/gameroom-ligthhouse.png)
+
+------
+
+## Unfixed bugs
+
+  - There is no unfixed bugs.
+
+-------
+
+## Deployment
+
+  - The site was deployed to GitHub pages. The steps are as follows:
+    - In the Github repository, go to settings.
+    - Click on Pages-link on the menu to the left.
+    - From the source section drop down list, select the main branch and save.
+    - Then I got a link to my page on Github.
+
+  - Here is the live link to the site - [Game Room - Rock, Paper, Scissor, Lizard and Spock game!](https://creanorcode.github.io/project_2/index.html)
+
+## Credits
+
+  - Sound effect was downloaded for free from [www.mixkit.co](https://mixkit.co/)
+  - The favicon was mabe in [Canva](https://www.canva.com/)
+
+
