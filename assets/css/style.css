@@ -110,10 +110,10 @@ li {
     display: none;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #04AA6D;
+    background-color: #04B474;
     border: 3px solid #FFFF00;
     border-radius: 5px;
-    color: #FFFF00;
+    color: #000;
     text-transform: uppercase;
     font-weight: 700;
 }
