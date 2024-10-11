@@ -98,6 +98,11 @@ This is the main game area. Here you can navigate to the instructions page (will
   - CSS
     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcreanorcode.github.io%2Fproject_2%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv).
   
+  - Javascript
+    - The code was put in [jshint.com](https://jshint.com/) with warnings but no errors.
+    - In the screenshot below it is possible to review some of it 
+      ![jshint](assets/readme-files/gameroom-jshint.png)
+  
   - Accessibility
     - I confirmed that the colors and fonts chosen are easy to read and accessible by running it through Lighthouse in devtools.
 
